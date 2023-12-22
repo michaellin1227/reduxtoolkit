@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './components/Profile';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import userSlice from './store/userSlice';
 
+// store 
+const store = configureStore({
+  // reducer 如何操作、改變、取得state的function
+  reducer: {
+    // key : value
+    user: userSlice,
+
+  }
+
+})
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Profile />
+      </div>
+    </Provider>
   );
 }
 
