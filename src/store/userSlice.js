@@ -29,8 +29,8 @@ const userSlice = createSlice({
     }
 })
 
-// 解構取得functions
+// export : 解構取得functions
 export const { setLogin, setLogout } = userSlice.actions;
 
-// reducer
+// export : reducer
 export default userSlice.reducer;
